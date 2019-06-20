@@ -76,11 +76,11 @@ RegExp.escape = function(s) {
 
         parsers: {
             parse: function(csv, options) {
-                // cache settings
                 var separator = options.separator;
                 var delimiter = options.delimiter;
 
                 // set initial state if it's missing
+                // cache settings
                 if (!options.state.rowNum) {
                     options.state.rowNum = 1;
                 }

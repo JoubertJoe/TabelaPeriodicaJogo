@@ -1,57 +1,54 @@
 //myScript.js
-$.get("tabela.csv", function(CSVdata) {
+$.get("tabela.csv", function (CSVdata) {
     // CSVdata is populated with the file contents
     // ready to be converted into an Array
     data = $.csv.toArrays(CSVdata);
 });
 
+var score = 0;
+elemento = sorteiaElemento();
 var gradient = new Array();
-gradient[0] = 'linear-gradient(to right, rgba(77,255,106,1) 0%, rgba(10,255,51,1) 100%)';//Nonmetal
-gradient[1] = 'linear-gradient(to right, rgba(255,166,77,1) 0%, rgba(255,133,10,1) 100%)';//Alcalinos
-gradient[2] = 'linear-gradient(135deg, rgba(225,218,117,1) 0%, rgba(232,177,89,1) 100%)';//Alcalino Terroso
-gradient[3] = 'linear-gradient(to right, rgba(255,77,249,1) 0%, rgba(255,10,247,1) 100%)';//lantanoid
-gradient[4] = 'linear-gradient(to right, rgba(198,77,255,1) 0%, rgba(177,10,255,1) 100%)';//actinoide
-gradient[5] = 'linear-gradient(to right, rgba(94,77,255,1) 0%, rgba(35,10,255,1) 100%)';//transição metal
-gradient[6] = 'linear-gradient(to right, rgba(77,157,255,1) 0%, rgba(10,120,255,1) 100%)';//pos transicao
-gradient[7] = 'linear-gradient(135deg, rgba(78,193,106,1) 0%, rgba(65,200,55,1) 100%';//semi
-gradient[8] = 'radial-gradient(ellipse at center, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%)';//nobre
+gradient[0] = 'linear-gradient(to right, rgba(77,255,106,1) 0%, rgba(10,255,51,1) 100%)'; //Nonmetal
+gradient[1] = 'linear-gradient(to right, rgba(255,166,77,1) 0%, rgba(255,133,10,1) 100%)'; //Alcalinos
+gradient[2] = 'linear-gradient(135deg, rgba(225,218,117,1) 0%, rgba(232,177,89,1) 100%)'; //Alcalino Terroso
+gradient[3] = 'linear-gradient(to right, rgba(255,77,249,1) 0%, rgba(255,10,247,1) 100%)'; //lantanoid
+gradient[4] = 'linear-gradient(to right, rgba(198,77,255,1) 0%, rgba(177,10,255,1) 100%)'; //actinoide
+gradient[5] = 'linear-gradient(to right, rgba(94,77,255,1) 0%, rgba(35,10,255,1) 100%)'; //transição metal
+gradient[6] = 'linear-gradient(to right, rgba(77,157,255,1) 0%, rgba(10,120,255,1) 100%)'; //pos transicao
+gradient[7] = 'linear-gradient(135deg, rgba(78,193,106,1) 0%, rgba(65,200,55,1) 100%'; //semi
+gradient[8] = 'radial-gradient(ellipse at center, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%)'; //nobre
 
-function trocaCss(elemento){
+
+function trocaCss(elemento) {
     tipo = 0;
-    if (data[elemento][15] == "Nonmetal"){
+    if (data[elemento][15] == "Nonmetal") {
         tipo = 0;
-    }else if
-    (data[elemento][15] == "Halogen"){
+    } else if (data[elemento][15] == "Halogen") {
+
         tipo = 0;
-    }else if
-    (data[elemento][15] == "Alkali Metal"){
+    } else if (data[elemento][15] == "Alkali Metal") {
         tipo = 1;
-    }else if
-    (data[elemento][15] == "Alkaline Earth Metal"){
+    } else if (data[elemento][15] == "Alkaline Earth Metal") {
         tipo = 2;
-    }else if
-    (data[elemento][15] == "Lanthanide"){
+    } else if (data[elemento][15] == "Lanthanide") {
         tipo = 3;
-    }else if
-    (data[elemento][15] == "Actinide"){
+    } else if (data[elemento][15] == "Actinide") {
         tipo = 4;
-    }else if
-    (data[elemento][15] == "Metal"){
+    } else if (data[elemento][15] == "Metal") {
         tipo = 5;
-    }else if
-    (data[elemento][15] == "Transition Metal"){
+    } else if (data[elemento][15] == "Transition Metal") {
         tipo = 5;
-    }else if
-    (data[elemento][15] == "Metalloid"){
+    } else if (data[elemento][15] == "Metalloid") {
         tipo = 7;
-    } else if
-    (data[elemento][15] == "Noble Gas"){
+    } else if (data[elemento][15] == "Noble Gas") {
         tipo = 8;
     }
-    
 
 
-    $('#divPrincipal').css({'background': gradient[tipo]});
+
+    $('#divPrincipal').css({
+        'background': gradient[tipo]
+    });
 }
 
 function sorteiaElemento() {
@@ -62,15 +59,22 @@ function sorteiaElemento() {
     return elementoN;
 }
 
-function printElemento(elemento){
+function printElemento(elemento) {
     console.log(data[elemento]);
 }
 
-function getElemento(numeroE, info){
+function getElemento(numeroE, info) {
     return data[numeroE][info];
 }
 
-function modoFacil(){
+function modoFacil() {       
+        if (data[elemento][2] == $("#simbolo_quimico").text().trim()) {
+            score = score + 1;      
+            var p1 = document.getElementById("p1");
+            p1.innerHTML = "Score :"+score+"";
+        
+        }
+        console.log(score);
     elemento = sorteiaElemento();
     console.log(elemento);
     console.log(data[elemento]);
@@ -80,12 +84,11 @@ function modoFacil(){
     $('#estado_natural').text(data[elemento][9]);
     $('#tipo').text(data[elemento][15]);
     trocaCss(elemento)
+  
+
 }
 
 function mudarNatomico() {
-    var p1 = document.getElementById("p1");
-    p1.innerHTML = "Mudando N° atomico.";
-
     document.getElementById("numero_atomico").style.display = "none";
     document.getElementById("inpNatomico").style.display = "block";
     document.getElementById("btnNatomico").style.display = "block";
