@@ -1,13 +1,16 @@
 body {
     text-align: center;
-     background-image: url("img/bg01.jpg");
+     background-image: url("img/walter.jpg");
+    background-attachment: fixed;
+    background-position: left; 
     margin: 0;
-    height: 100%;
 }
 footer{
     margin: 0;
     height: 0%;
 }
+
+
 
 
 
@@ -54,6 +57,13 @@ div.principal {
 p {
     color: #e0dfdc;
     font-weight: bold;
+}
+h1{
+    color: #e0dfdc;
+    font-weight: bold;  
+    text-align: center;
+    font-size: 100pt;
+
 }
 
 #p_inicial {

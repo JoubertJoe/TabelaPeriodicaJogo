@@ -51,15 +51,15 @@ function trocaCss(elemento) {
     });
 }
 
-$(function(){
-	$('#btn1').click(function(){
-		e1 = $('#divPrincipal');
+$(function () {
+    $('#btn1').click(function () {
+        e1 = $('#divPrincipal');
         e1.addClass('animate');
         e1.one('webkitAnimationEnd oanimationend msAnimationEnd animationend',
-        function (e) {
-            e1.removeClass('animate');
-        });
-	});
+            function (e) {
+                e1.removeClass('animate');
+            });
+    });
 });
 
 
@@ -79,15 +79,15 @@ function getElemento(numeroE, info) {
     return data[numeroE][info];
 }
 
-function modoFacil() {       
-        if (data[elemento][2] == $("#simbolo_quimico").text().trim()) {
-            score = score + 1;      
-            var p1 = document.getElementById("p1");
-            p1.innerHTML = "Score :"+score+"";
-        
-        }
-        console.log(score);
-        document.querySelector("#divPrincipal").classList.toggle("flip")
+function modoFacil() {
+    if (data[elemento][2] == $("#simbolo_quimico").text().trim()) {
+        score = score + 1;
+        var p1 = document.getElementById("p1");
+        p1.innerHTML = "Score :" + score + "";
+
+    }
+    console.log(score);
+    document.querySelector("#divPrincipal").classList.toggle("flip")
     elemento = sorteiaElemento();
     console.log(elemento);
     console.log(data[elemento]);
@@ -97,8 +97,50 @@ function modoFacil() {
     $('#estado_natural').text(data[elemento][9]);
     $('#tipo').text(data[elemento][15]);
     trocaCss(elemento)
-  
+}
 
+function modoMedio() {
+    if (data[elemento][2] == $("#simbolo_quimico").text().trim()) {
+        score = score + 1;
+    }
+    if (data[elemento][0] == $("#numero_atomico").text().trim()) {
+        score = score + 1;
+    }
+
+    var p1 = document.getElementById("p1");
+    p1.innerHTML = "Score :" + score + "";
+    console.log(score);
+    document.querySelector("#divPrincipal").classList.toggle("flip")
+    elemento = sorteiaElemento();
+    console.log(elemento);
+    console.log(data[elemento]);
+    $('#massa_atomica').text(data[elemento][3]);
+    $('#nome').text(data[elemento][1]);
+    $('#estado_natural').text(data[elemento][9]);
+    $('#tipo').text(data[elemento][15]);
+    trocaCss(elemento)
+}
+
+function modoDificil() {
+    if (data[elemento][2] == $("#simbolo_quimico").text().trim()) {
+        score = score + 1;
+        
+    }
+    if (data[elemento][0] == $("#numero_atomico").text().trim()) {
+        score = score + 1;
+    }
+    
+    var p1 = document.getElementById("p1");
+    p1.innerHTML = "Score :" + score + "";
+    console.log(score);
+    document.querySelector("#divPrincipal").classList.toggle("flip")
+    elemento = sorteiaElemento();
+    console.log(elemento);
+    console.log(data[elemento]);
+    $('#nome').text(data[elemento][1]);
+    $('#estado_natural').text(data[elemento][9]);
+    $('#tipo').text(data[elemento][15]);
+    trocaCss(elemento)
 }
 
 function mudarNatomico() {
