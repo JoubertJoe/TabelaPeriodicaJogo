@@ -51,6 +51,18 @@ function trocaCss(elemento) {
     });
 }
 
+$(function(){
+	$('#btn1').click(function(){
+		e1 = $('#divPrincipal');
+        e1.addClass('animate');
+        e1.one('webkitAnimationEnd oanimationend msAnimationEnd animationend',
+        function (e) {
+            e1.removeClass('animate');
+        });
+	});
+});
+
+
 function sorteiaElemento() {
     var min = 1;
     var max = 118;
@@ -75,6 +87,7 @@ function modoFacil() {
         
         }
         console.log(score);
+        document.querySelector("#divPrincipal").classList.toggle("flip")
     elemento = sorteiaElemento();
     console.log(elemento);
     console.log(data[elemento]);
