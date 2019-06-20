@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous">
+    </script>
+    <script src="jquery.csv.js"></script>
+    <script src="myScript.js"></script>
+
+</head>
+
+<body>
+    <p id="p1">Testes...</p>
+    <div class="principal" id = "divPrincipal">
+        <p id="p_inicial">
+            <!-- 0 -->
+            <span id="numero_atomico" onclick="mudarNatomico()">N° at</span>
+            <input id="inpNatomico"><button id="btnNatomico" onclick="mudarNatomico1()">OK</button>
+            <!-- 3 -->
+            <span id="massa_atomica" onclick="mudarMatomica()">M At</span>
+            <input id="inpMatomica"><button id="btnMatomica" onclick="mudarMatomica1()">OK</button>
+            <br></p>
+        <!-- 2 -->
+        <p id="simbolo_quimico" onclick="mudarSimbolo()">?</p>
+        <input id="inpSimbolo"><button id="btnSimbolo" onclick="mudarSimbolo1()">OK</button>
+        <!-- 1 -->
+        <p id="nome" onclick="mudarNome()">Nome</p>
+        <input id="inpNome"><button id="btnNome" onclick="mudarNome1()">OK</button>
+        <!-- 11 -->
+        <p id="estado_natural" onclick="mudarEstado()">Estado Natural</p>
+        <input id="inpEstado"><button id="btnEstado" onclick="mudarEstado1()">OK</button>
+        <!-- 15 -->
+        <p id="tipo" onclick="mudarTipo()">Tipo</p>
+        <input id="inpTipo"><button id="btnTipo" onclick="mudarTipo1()">OK</button>
+    </div>
+    <button id = "btnTeste" onclick="modoFacil()">TESTE</button>
+</body>
+
+</html>
