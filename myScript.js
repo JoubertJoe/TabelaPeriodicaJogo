@@ -91,6 +91,7 @@ function modoFacil() {
     elemento = sorteiaElemento();
     console.log(elemento);
     console.log(data[elemento]);
+    $('#simbolo_quimico').text("?");
     $('#numero_atomico').text(data[elemento][0]);
     $('#massa_atomica').text(data[elemento][3]);
     $('#nome').text(data[elemento][1]);
@@ -114,6 +115,8 @@ function modoMedio() {
     elemento = sorteiaElemento();
     console.log(elemento);
     console.log(data[elemento]);
+    $('#numero_atomico').text("?");
+    $('#simbolo_quimico').text("?");
     $('#massa_atomica').text(data[elemento][3]);
     $('#nome').text(data[elemento][1]);
     $('#estado_natural').text(data[elemento][9]);
@@ -137,6 +140,9 @@ function modoDificil() {
     elemento = sorteiaElemento();
     console.log(elemento);
     console.log(data[elemento]);
+    $('#numero_atomico').text("?");
+    $('#simbolo_quimico').text("?");
+    $('#massa_atomica').text("?");
     $('#nome').text(data[elemento][1]);
     $('#estado_natural').text(data[elemento][9]);
     $('#tipo').text(data[elemento][15]);
