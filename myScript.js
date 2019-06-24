@@ -132,6 +132,9 @@ function modoDificil() {
     if (data[elemento][0] == $("#numero_atomico").text().trim()) {
         score = score + 1;
     }
+    if (data[elemento][3] == $("#massa_atomica").text().trim()) {
+        score = score + 1;
+    }
     
     var p1 = document.getElementById("p1");
     p1.innerHTML = "Score :" + score + "";
